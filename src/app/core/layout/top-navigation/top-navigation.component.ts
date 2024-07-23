@@ -4,13 +4,14 @@ import { LoginComponent } from '../../auth/pages/login/login.component';
 import { Store } from '@ngrx/store';
 import { RegisterComponent } from '../../auth/pages/register/register.component';
 import { AuthService } from '../../auth/auth.service';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-top-navigation',
   templateUrl: './top-navigation.component.html',
   styleUrls: ['./top-navigation.component.scss'],
   standalone: true,
-  imports: []
+  imports: [MatIconModule]
 })
 export class TopNavigationComponent implements OnInit {
   dialog = inject(MatDialog)
