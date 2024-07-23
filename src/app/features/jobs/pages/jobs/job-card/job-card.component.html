@@ -1,0 +1,47 @@
+<div class="w-full bg-blue-200 rounded-md p-2 gap-2 gap-y-28 item" (click)="openDialog()">
+  <div class="flex justify-between">
+    <div class="flex">
+      <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="checklist"></mat-icon>
+      <span>{{job()?.type }}</span>
+      
+    </div>
+    
+    <div class="flex">
+      <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="schedule"></mat-icon>
+
+      <span>{{job()?.date_published | myDate:'YYYY-MM-DD'}}</span>
+    </div>
+    
+  </div>
+  <div class="my-2">
+    <div class="flex">
+      <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
+      <span>{{job()?.title |slice:0:33}}</span>
+    </div>
+  </div>
+  <div class="grid grid-cols-2 mt-2">
+    <div class="flex">
+      <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="paid"></mat-icon> 
+      <span>from : {{job()?.salary_from}} </span>
+    </div>
+    <div class="flex ">
+      <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="paid"></mat-icon> 
+      <span>to : {{job()?.salary_to}} </span>
+    </div>
+  </div>
+  @if (job()?.location !==null) {
+    <div class="flex mt-4">
+      <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="location_on"></mat-icon>
+      <span>{{job()?.location }}</span>
+      
+    </div>
+  }
+  @if (job()?.description !==null) {
+    <div class="flex mt-4">
+      <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="location_on"></mat-icon>
+      <span>{{job()?.description }}</span>
+      
+    </div>
+  } 
+  
+</div>

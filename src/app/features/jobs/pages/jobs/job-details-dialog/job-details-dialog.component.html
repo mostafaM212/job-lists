@@ -1,0 +1,100 @@
+<div class="w-full rounded-md p-2 gap-2 gap-y-28 item">
+  <div class="flex justify-between items-center p-2">
+    <div class="flex">
+      <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
+      <span>{{job()?.title |slice:0:33}}</span>
+    </div>
+    <button mat-dialog-close class=" border-0 ">
+      <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="close"></mat-icon>
+    </button>
+
+  </div>
+  @if (!showApplyForm) {
+    <div class="w-full p-2">
+      <div class="flex justify-center items-center p-2">
+        <img [src]="job()?.cover" alt="" srcset="" class="rounded-lg" width="300px" height="400px">
+    
+      </div>
+      <div class="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-y-2">
+        <div class="flex">
+          <span class="font-semibold">Type :</span>
+          <span>{{job()?.type }}</span>
+          
+        </div>
+        
+        <div class="flex">
+          <span class="font-semibold" >Date published :</span>
+          <span>{{job()?.date_published | myDate:'YYYY-MM-DD'}}</span>
+        </div>
+        <div class="flex">
+          
+          <span class="font-semibold">Basic Salary from :  </span>
+          <span>{{job()?.basic_salary_from}}</span>
+        </div>
+        <div class="flex ">
+          <span class="font-semibold">Basic Salary to :  </span>
+          <span>{{job()?.basic_salary_to}}</span>
+        </div>
+        <div class="flex">
+          
+          <span class="font-semibold">Salary from :  </span>
+          <span>{{job()?.salary_from}}</span>
+        </div>
+        <div class="flex ">
+          <span class="font-semibold">Salary to :  </span>
+          <span>{{job()?.salary_to}}</span>
+        </div>
+        <div class="flex">
+          <span class="font-semibold">years of experience :</span>
+          <span class="">{{job()?.minimum_years_of_experience}}</span>
+        </div>
+        <div class="flex">
+          <span class="font-semibold">Priority :</span>
+          <span class="">{{job()?.priority}}</span>
+        </div>
+        <div class="flex">
+          <span>Applied :</span>
+          @if (job()?.applied) {
+            <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="check"  class="text-green-400"></mat-icon>
+  
+          }@else {
+            <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="close" class="text-red-400"></mat-icon>
+  
+          }
+        </div>
+      </div>
+      <div class="flex justify-between items-center mt-2">
+        
+      </div>
+      @if (job()?.location !==null) {
+        <div class="flex mt-4">
+          <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="location_on"></mat-icon>
+          <span>{{job()?.location }}</span>
+          
+        </div>
+      }
+      @if (job()?.description !==null) {
+        <div class="flex mt-4">
+          <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="location_on"></mat-icon>
+          <span>{{job()?.description }}</span>
+          
+        </div>
+      } 
+    </div>
+    <div class="flex justify-center items-center">
+      <div class="w-1/4 flex gap-2">
+        <button type="button"  class="bg-green-400 text-white rounded-sm p-2 disabled:bg-green-200" (click)="save()" [disabled]="job()?.saved">save</button>
+        <button type="button"  class="bg-blue-400 text-white rounded-sm p-2 disabled:bg-blue-200" (click)="showApplyForm = true" [disabled]="job()?.applied">
+          @if (job()?.applied) {
+            Applied
+          }@else {
+            apply
+          }
+        </button>
+  
+      </div>
+    </div>
+  }@else {
+    <app-job-apply-form (onBackClick)="showApplyForm = false" (onApplyClick)="apply()" />
+  }
+</div>

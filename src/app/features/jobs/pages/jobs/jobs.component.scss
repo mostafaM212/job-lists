@@ -1,0 +1,21 @@
+:host {
+       mat-icon {
+              color: rgb(78, 78, 127);
+              // font-size: 15px;
+       }
+
+       span {
+              font-size: 15px;
+       }
+
+       .bord {
+              border: 1px solid #ccc;
+              border-radius: 5px;
+
+              .input:focus-visible {
+                     outline: none;
+              }
+       }
+
+       
+}

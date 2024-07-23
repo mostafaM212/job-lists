@@ -1,0 +1,28 @@
+<div class="w-full p-10">
+  <div class="w-full flex justify-center items-center mb-3">
+    <span class=" text-blue-400 h3">Register Form</span>
+  </div>
+  <form [formGroup]="registerForm">
+    <div class="flex flex-col justify-center items-center">
+      <div class="w-full">
+        <mat-form-field appearance="outline"  class="w-full">
+          <mat-label>Email/Mobile</mat-label>
+          <input matInput placeholder="Email"  class="w-full" type="email"  formControlName="email">
+          <mat-error>this field is required</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="w-full mt-2">
+        <mat-form-field appearance="outline"  class="w-full">
+          <mat-label>Password</mat-label>
+          <input matInput placeholder="****************"  class="w-full"  formControlName="password" >
+          <mat-error>this field is required</mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+  </form>
+  <div class="flex justify-center items-center">
+    <div class="w-1/4 flex justify-center items-center gap-2">
+      <button type="button"  class="bg-green-400 text-white rounded-sm p-2 disabled:bg-green-200" (click)="save()" >save</button>
+    </div>
+  </div>
+</div>

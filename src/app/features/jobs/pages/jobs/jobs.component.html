@@ -1,0 +1,29 @@
+<div class="w-full">
+  <div class="flex justify-center items-center mb-10 border-1 ">
+    <div class="lg:w-1/4 md:w-1/2 sm:w-full bord flex p-2">
+      <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="search"></mat-icon>
+      <input type="text" class="w-full input" [(ngModel)]="search">
+    </div>
+  </div>
+    <div class="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-2 px-5">
+      @if (!searchedJobs().length) {
+        @for(job of jobs() ; track job.id){
+          <app-job-card [job]="job"/>
+        }
+      }@else {
+        @for(job of searchedJobs() ; track job.id){
+          <app-job-card [job]="job"/>
+        }
+      }
+      
+    </div>
+    @if (!searchedJobs().length ) {
+      <div class="flex justify-center items-center mb-10 border-1 ">
+        <div class="lg:w-1/4 md:w-1/2 sm:w-full  flex p-2 gap-2 justify-center items-center ">
+         <button type="button" class="bg-blue-200 rounded-md p-4 hover:bg-blue-400" appLoadMore [requestedNumber]="jobs().length" >More</button>
+         <button type="button" class="bg-green-200 rounded-md p-4 hover:bg-blue-400" appLoadLess [requestedNumber]="jobs().length" [disabled]="jobs().length - 11 <=0" >Less</button>
+
+        </div>
+      </div>
+    }
+</div>

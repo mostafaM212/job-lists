@@ -1,0 +1,23 @@
+<div class="w-full  h-14 flex lg:justify-end justify-start lg:align-middle ">
+  
+    @if (!isAuth()) {
+      <div class="w-full flex justify-between md:justify-end lg:justify-end gap-5 items-center px-5">
+        <div class=" flex justify-center items-center h-full">
+          <a (click)="openLoginDialog()">login</a>
+        </div>
+        <div class=" flex justify-center  items-center h-full">
+          <a (click)="openRegisterDialog()">register</a>
+        </div>
+      </div>
+    }@else {
+      <div class="w-full flex justify-between md:justify-end lg:justify-end gap-5 items-center px-5">
+        <div class=" flex justify-center items-center h-full">
+          <span class="text-blue-400 ">{{user()}}</span>
+        </div>
+        <div class=" flex justify-center  items-center h-full">
+          <a (click)="authService.logoutUser()" class="text-red-500">logout</a>
+        </div>
+      </div>
+    }
+ 
+</div>

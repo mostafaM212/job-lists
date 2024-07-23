@@ -1,0 +1,92 @@
+<div class="w-full">
+  <div class="flex mb-5">
+    <div class="w-1/4 flex justify-start px-2 items-center">
+      <button class="" (click)="onBackClick.emit()">
+        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="arrow_back"  class="text-blue-400"></mat-icon>
+      </button>
+    </div>
+    <div class="w-1/2 flex justify-center items-center">
+      <span class=" text-blue-400">Application Form</span>
+    </div>
+    <div class="w-1/4">
+      <!-- <button class="self-start">start</button> -->
+    </div>
+    <!-- <div class=""></div> -->
+  </div>
+  <form [formGroup]="applyForm">
+    <div class="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 px-4">
+      <div class="">
+        <mat-form-field appearance="outline">
+          <mat-label>Name</mat-label>
+          <input matInput  formControlName="name">
+          <mat-error>this field is required</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="">
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="Email" type="email"  formControlName="email">
+          <mat-error>this field is required</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="">
+        <mat-form-field appearance="outline">
+          <mat-label>Phone</mat-label>
+          <input matInput placeholder="Phone"  formControlName="phone">
+          <mat-error>this field is required</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="">
+        <mat-form-field appearance="outline">
+          <mat-label>Country</mat-label>
+          <input matInput placeholder="Country"  formControlName="country">
+          <mat-error>this field is required</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="">
+        <mat-form-field appearance="outline">
+          <mat-label>Education</mat-label>
+          <input matInput placeholder="Education"  formControlName="education">
+          <mat-error>this field is required</mat-error>
+        </mat-form-field>
+      </div>
+      
+      <div class="">
+        <mat-form-field appearance="outline">
+          <mat-label>Current position</mat-label>
+          <input matInput placeholder="Current Position"  formControlName="currentPosition">
+          <mat-error>this field is required</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="">
+        <mat-form-field appearance="outline">
+          <mat-label>Company</mat-label>
+          <input matInput placeholder="Company"  formControlName="company">
+          <mat-error>this field is required</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="">
+        <mat-form-field appearance="outline">
+          <mat-label>CV</mat-label>
+          <input matInput placeholder="CV" formControlName="cv"  (click)="file.click()">
+          <mat-error>the file must less than 3mb</mat-error>
+        </mat-form-field>
+        <input type="file" #file name="" id="" class="" style="display: none;" (change)="onAddFile(file)">
+      </div>
+      <div class="">
+        <mat-form-field appearance="outline">
+          <mat-label>Cover</mat-label>
+          <input matInput placeholder="Cover" formControlName="cover" (click)="file2.click()">
+          <mat-error>the file must less than 3mb</mat-error>
+        </mat-form-field>
+        <input type="file" #file2 name="" id="" class="" style="display: none;" (change)="onAddFile(file,'cover')">
+      </div>
+
+    </div>
+  </form>
+  <div class="flex justify-center items-center">
+    <div class="w-1/4 flex gap-2">
+      <button type="button"  class="bg-green-400 text-white rounded-sm p-2 disabled:bg-green-200" (click)="openDialog()" >save</button>
+    </div>
+  </div>
+</div>

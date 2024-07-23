@@ -1,0 +1,15 @@
+.item {
+       transition: all .2s;
+       transform: scale(1);
+
+       &:hover {
+              transform: scale(1.03);
+              cursor: pointer;
+              background-color: rgb(78, 78, 127);
+              color: aqua;
+
+              mat-icon {
+                     color: aqua;
+              }
+       }
+}
